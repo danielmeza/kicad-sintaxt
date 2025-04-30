@@ -1,0 +1,99 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "KiCad S-Expression",
+	"patterns": [
+		{ "include": "#comment" },
+		{ "include": "#expression" }
+	],
+	"repository": {
+		"expression": {
+			"patterns": [
+				{ "include": "#comment" },
+				{ "include": "#parentheses" },
+				{ "include": "#fileKeywords" },
+				{ "include": "#primaryKeywords" },
+				{ "include": "#secondaryKeywords" },
+				{ "include": "#layerKeywords" },
+				{ "include": "#values" },
+				{ "include": "#string" },
+				{ "include": "#number" },
+				{ "include": "#uuid" },
+				{ "include": "#atom" }
+			]
+		},
+		"parentheses": {
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": { "name": "punctuation.section.parens.begin.kicad" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.section.parens.end.kicad" }
+			},
+			"name": "meta.expression.kicad",
+			"patterns": [
+				{ "include": "#expression" }
+			]
+		},
+		"comment": {
+			"match": ";.*$",
+			"name": "comment.line.semicolon.kicad"
+		},
+		"fileKeywords": {
+			"match": "(?<=\\()\\s*(kicad_pcb|kicad_sch|kicad_symbol_lib|footprint|module|kicad_wks|worksheet)\\b",
+			"captures": {
+				"1": { "name": "keyword.control.file.kicad" }
+			}
+		},
+		"primaryKeywords": {
+			"match": "(?<=\\()\\s*(symbol|pad|via|segment|zone|group|fp_text|fp_line|fp_circle|fp_arc|fp_poly|fp_curve|net|net_class|general|setup|layer|page|title_block|paper|lib_symbols|junction|wire|bus|bus_entry|no_connect|image|text|label|global_label|hierarchical_label|sheet|instances|property|path|pin|uuid|font|effects|stroke|fill|at|size|position|drill|thickness|version|generator|pts|xy|xyz)\\b",
+			"captures": {
+				"1": { "name": "entity.name.function.kicad" }
+			}
+		},
+		"secondaryKeywords": {
+			"match": "\\b(locked|placed|fields_autoplaced|unit|reference|value|footprint|datasheet|extends|pin_numbers|pin_names|in_bom|on_board|id|shape|start|mid|end|angle|width|style|justify|hide|tstamp|type|layers|dielectric_constraints|edge_connector|castellated_pads|edge_plating|copper_finish|solder_mask_margin|connect|thermal_bridge|clearance|min_width|min_thickness|chamfer|rotation|radius|diameter|offset|arrow|owned|port_type|port_extent|members|descr|tags|tedit|tstamp|tedit|autoplace_cost90|autoplace_cost180|area|fp_text|thickness)\\b",
+			"name": "keyword.other.kicad"
+		},
+		"layerKeywords": {
+			"match": "\\b(F\\.Cu|B\\.Cu|F\\.Adhes|B\\.Adhes|F\\.Paste|B\\.Paste|F\\.SilkS|B\\.SilkS|F\\.Mask|B\\.Mask|Dwgs\\.User|Cmts\\.User|Eco1\\.User|Eco2\\.User|Edge\\.Cuts|F\\.CrtYd|B\\.CrtYd|F\\.Fab|B\\.Fab|User\\.1|User\\.2|User\\.3|User\\.4|User\\.5|User\\.6|User\\.7|User\\.8|User\\.9)\\b",
+			"name": "constant.language.layer.kicad"
+		},
+		"values": {
+			"match": "\\b(true|false|yes|no|input|output|bidirectional|tri_state|passive|none|solid|dash|dot|dashdot|dashdotdot|default|outline|background|circle|rect|oval|trapezoid|roundrect|custom|through_hole|smd|thru_hole|np_thru_hole|connect|thermal|solid|Top|Bottom|right|left|top|bottom|top_left|top_right|bottom_left|bottom_right|portrait|landscape|manual|through|horizontal|vertical)\\b",
+			"name": "constant.language.kicad"
+		},
+		"string": {
+			"name": "string.quoted.double.kicad",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.kicad",
+					"match": "\\\\."
+				}
+			]
+		},
+		"number": {
+			"patterns": [
+				{
+					"name": "constant.numeric.integer.kicad",
+					"match": "\\b-?[0-9]+\\b"
+				},
+				{
+					"name": "constant.numeric.float.kicad",
+					"match": "\\b-?[0-9]+\\.[0-9]+\\b"
+				}
+			]
+		},
+		"uuid": {
+			"match": "\\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\\b",
+			"name": "constant.other.uuid.kicad"
+		},
+		"atom": {
+			"match": "\\b[a-zA-Z_][a-zA-Z0-9_\\-\\.]*\\b",
+			"name": "variable.other.kicad"
+		}
+	},
+	"scopeName": "source.kicad.sexpr"
+}

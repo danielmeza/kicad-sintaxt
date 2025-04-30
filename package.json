@@ -1,0 +1,41 @@
+{
+  "name": "kicad-syntax-highlighter",
+  "displayName": "KiCad Syntax Highlighter",
+  "description": "A VS Code extension to highlight KiCad schematic and board files using s-expression syntax.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "kicad",
+      "aliases": ["KiCad S-Expression", "kicad"],
+      "extensions": [
+        ".kicad_pro",
+        ".kicad_sch",
+        ".kicad_pcb",
+        ".kicad_mod",
+        ".kicad_sym",
+        ".kicad_wks",
+        ".sch",
+        ".lib",
+        ".kicad_pcb-bak",
+        ".kicad_sch-bak",
+        ".net",
+        ".dsn",
+        ".kicad_dru",
+        ".fp-lib-table",
+        ".sym-lib-table"
+      ],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "kicad",
+      "scopeName": "source.kicad.sexpr",
+      "path": "./syntaxes/kicad.tmLanguage.json"
+    }]
+  }
+}
