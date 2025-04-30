@@ -1,4 +1,11 @@
-.vscode/**
+.vscode/**og
 .vscode-test/**
-.gitignore
+.gitignoree changes to the "KiCad Syntax Highlighter" extension will be documented in this file.
+.github
+node_modules## [0.0.1] - 2025-04-30- Initial release
+.eslintrc.json- Basic syntax highlighting for KiCad files using s-expression syntax- Support for multiple KiCad file formats
+**/*.map
+**/*.ts
+.gitattributes
 vsc-extension-quickstart.md
+node_modules

@@ -1,53 +1,58 @@
-# KiCad Syntax Highlighter for Visual Studio Code
+# KiCad Syntax Highlighter for VS Code
 
-This extension provides comprehensive syntax highlighting for KiCad s-expression files in Visual Studio Code.
+![KiCad Syntax Highlighter](images/extension-icon.png)
+
+This extension provides syntax highlighting for KiCad schematic, PCB, and related files in Visual Studio Code.
 
 ## Features
 
-- Syntax highlighting for all KiCad file formats including:
-  - Schematic files (`.kicad_sch`)
-  - PCB files (`.kicad_pcb`)
-  - Symbol library files (`.kicad_sym`)
-  - Footprint files (`.kicad_mod`)
-  - Project files (`.kicad_pro`)
-  - Worksheet files (`.kicad_wks`)
-  - And other KiCad-related formats
+- Syntax highlighting for KiCad files using s-expression syntax
+- Support for multiple KiCad file formats:
+  - Schematic files (.kicad_sch, .sch)
+  - PCB files (.kicad_pcb)
+  - Component libraries (.lib, .kicad_sym)
+  - Footprint files (.kicad_mod)
+  - Project files (.kicad_pro)
+  - And more...
 
-- Highlights different elements of KiCad files:
-  - File structure keywords
-  - Primary tokens and keywords
-  - Secondary attributes and property names
-  - Layer names
-  - Value constants (true/false, yes/no, etc.)
-  - UUIDs
-  - Strings and numbers
-  - Comments (using semicolons)
+## Screenshots
 
-## KiCad File Format Support
+![Syntax Highlighting Example 1](images/sample-1.png)
+![Syntax Highlighting Example 2](images/sample-2.png)
 
-This extension is based on the official KiCad file format documentation:
+## Supported File Extensions
 
-- [S-Expression Format Overview](https://dev-docs.kicad.org/en/file-formats/sexpr-intro/)
-- [Footprint Library File Format](https://dev-docs.kicad.org/en/file-formats/sexpr-footprint/)
-- [Board File Format](https://dev-docs.kicad.org/en/file-formats/sexpr-pcb/)
-- [Symbol Library File Format](https://dev-docs.kicad.org/en/file-formats/sexpr-symbol-lib/)
-- [Schematic File Format](https://dev-docs.kicad.org/en/file-formats/sexpr-schematic/)
-- [Worksheet File Format](https://dev-docs.kicad.org/en/file-formats/sexpr-worksheet/)
-
-## Requirements
-
-No additional requirements. This extension is standalone and works with any Visual Studio Code installation.
+- `.kicad_pro` - KiCad project files
+- `.kicad_sch` - KiCad schematic files
+- `.kicad_pcb` - KiCad PCB files
+- `.kicad_mod` - KiCad footprint module files
+- `.kicad_sym` - KiCad symbol files
+- `.kicad_wks` - KiCad worksheet files
+- `.sch` - Legacy schematic files
+- `.lib` - Legacy library files
+- `.kicad_pcb-bak` - KiCad PCB backup files
+- `.kicad_sch-bak` - KiCad schematic backup files
+- `.net` - Netlist files
+- `.dsn` - Specctra DSN files
+- `.kicad_dru` - Design rules files
+- `.fp-lib-table` - Footprint library tables
+- `.sym-lib-table` - Symbol library tables
 
 ## Installation
 
-1. Install this extension from the VS Code Marketplace
-2. Open a KiCad file (.kicad_sch, .kicad_pcb, etc.)
-3. The syntax highlighting will be automatically applied
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search for "KiCad Syntax Highlighter"
+4. Click Install
+
+## About KiCad
+
+[KiCad](https://www.kicad.org/) is a free and open-source electronics design automation (EDA) suite for designing schematics and PCBs.
+
+## Issues and Contributions
+
+If you find any issues or have suggestions for improvements, please submit an issue or pull request on the [GitHub repository](https://github.com/demezaa/kicad-syntax-highlighter).
 
 ## License
 
-MIT
-
----
-
-**Enjoy working with KiCad files in VS Code!**
+This extension is licensed under the [MIT License](LICENSE).

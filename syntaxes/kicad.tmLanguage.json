@@ -2,37 +2,69 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "KiCad S-Expression",
 	"patterns": [
-		{ "include": "#comment" },
-		{ "include": "#expression" }
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#expression"
+		}
 	],
 	"repository": {
 		"expression": {
 			"patterns": [
-				{ "include": "#comment" },
-				{ "include": "#parentheses" },
-				{ "include": "#fileKeywords" },
-				{ "include": "#primaryKeywords" },
-				{ "include": "#secondaryKeywords" },
-				{ "include": "#layerKeywords" },
-				{ "include": "#values" },
-				{ "include": "#string" },
-				{ "include": "#number" },
-				{ "include": "#uuid" },
-				{ "include": "#atom" }
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#parentheses"
+				},
+				{
+					"include": "#fileKeywords"
+				},
+				{
+					"include": "#primaryKeywords"
+				},
+				{
+					"include": "#secondaryKeywords"
+				},
+				{
+					"include": "#layerKeywords"
+				},
+				{
+					"include": "#values"
+				},
+				{
+					"include": "#string"
+				},
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#uuid"
+				},
+				{
+					"include": "#atom"
+				}
 			]
 		},
 		"parentheses": {
 			"begin": "\\(",
 			"end": "\\)",
 			"beginCaptures": {
-				"0": { "name": "punctuation.section.parens.begin.kicad" }
+				"0": {
+					"name": "punctuation.section.parens.begin.kicad"
+				}
 			},
 			"endCaptures": {
-				"0": { "name": "punctuation.section.parens.end.kicad" }
+				"0": {
+					"name": "punctuation.section.parens.end.kicad"
+				}
 			},
 			"name": "meta.expression.kicad",
 			"patterns": [
-				{ "include": "#expression" }
+				{
+					"include": "#expression"
+				}
 			]
 		},
 		"comment": {
@@ -42,17 +74,21 @@
 		"fileKeywords": {
 			"match": "(?<=\\()\\s*(kicad_pcb|kicad_sch|kicad_symbol_lib|footprint|module|kicad_wks|worksheet)\\b",
 			"captures": {
-				"1": { "name": "keyword.control.file.kicad" }
+				"1": {
+					"name": "keyword.control.file.kicad"
+				}
 			}
 		},
 		"primaryKeywords": {
-			"match": "(?<=\\()\\s*(symbol|pad|via|segment|zone|group|fp_text|fp_line|fp_circle|fp_arc|fp_poly|fp_curve|net|net_class|general|setup|layer|page|title_block|paper|lib_symbols|junction|wire|bus|bus_entry|no_connect|image|text|label|global_label|hierarchical_label|sheet|instances|property|path|pin|uuid|font|effects|stroke|fill|at|size|position|drill|thickness|version|generator|pts|xy|xyz)\\b",
+			"match": "(?<=\\()\\s*(symbol|pad|via|segment|zone|group|fp_text|fp_line|fp_circle|fp_arc|fp_poly|fp_curve|net|net_class|general|setup|layer|page|title_block|paper|lib_symbols|junction|wire|bus|bus_entry|no_connect|image|text|label|global_label|hierarchical_label|sheet|instances|property|path|pin|uuid|font|effects|stroke|fill|at|size|position|drill|thickness|version|generator|pts|xy|xyz|generator_version|polyline)\\b",
 			"captures": {
-				"1": { "name": "entity.name.function.kicad" }
+				"1": {
+					"name": "entity.name.function.kicad"
+				}
 			}
 		},
 		"secondaryKeywords": {
-			"match": "\\b(locked|placed|fields_autoplaced|unit|reference|value|footprint|datasheet|extends|pin_numbers|pin_names|in_bom|on_board|id|shape|start|mid|end|angle|width|style|justify|hide|tstamp|type|layers|dielectric_constraints|edge_connector|castellated_pads|edge_plating|copper_finish|solder_mask_margin|connect|thermal_bridge|clearance|min_width|min_thickness|chamfer|rotation|radius|diameter|offset|arrow|owned|port_type|port_extent|members|descr|tags|tedit|tstamp|tedit|autoplace_cost90|autoplace_cost180|area|fp_text|thickness)\\b",
+			"match": "\\b(locked|placed|fields_autoplaced|unit|reference|value|footprint|datasheet|extends|pin_numbers|pin_names|in_bom|on_board|id|shape|start|mid|end|angle|width|style|justify|hide|tstamp|type|layers|dielectric_constraints|edge_connector|castellated_pads|edge_plating|copper_finish|solder_mask_margin|connect|thermal_bridge|clearance|min_width|min_thickness|chamfer|rotation|radius|diameter|offset|arrow|owned|port_type|port_extent|members|descr|tags|tedit|tstamp|tedit|autoplace_cost90|autoplace_cost180|area|fp_text|thickness|exclude_from_sim|dnp|lib_id)\\b",
 			"name": "keyword.other.kicad"
 		},
 		"layerKeywords": {
