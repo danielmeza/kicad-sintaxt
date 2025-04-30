@@ -9,6 +9,30 @@
   "categories": [
     "Programming Languages"
   ],
+  "author": {
+    "email": "daniel.meza2011@gmail.com",
+    "name": "Daniel Meza",
+    "url": "https://www.linkedin.com/in/demezaa/"
+  },
+  "license": "MIT",
+  "icon": "images/extension-icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielmeza/kicad-sintaxt"
+  },
+  "homepage": "https://github.com/danielmeza/kicad-sintaxt#readme",
+  "bugs": {
+    "url": "https://github.com/danielmeza/kicad-sintaxt/issues"
+  },
+  "keywords": [
+    "kicad",
+    "s-expression",
+    "syntax-highlighter",
+    "syntax",
+    "highlighting",
+    "language",
+    "vscode"
+  ],
   "contributes": {
     "languages": [{
       "id": "kicad",
