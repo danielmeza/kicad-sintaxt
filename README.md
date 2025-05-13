@@ -1,6 +1,27 @@
 # KiCad Syntax Highlighter for VS Code
 
-![KiCad Syntax Highlighter](images/extension-icon.png)
+![KiCad Syn## Issues and Contributions
+
+If you find any issues or have suggestions for improvements, please submit an issue or pull request on the [GitHub repository](https://github.com/danielmeza/kicad-sintaxt).
+
+## Development
+
+### Building the Extension
+
+1. Clone the repository
+2. Run `npm install` to install dependencies
+3. Run `npm run package` to create a `.vsix` file
+
+### Publishing
+
+This extension uses GitHub Actions for automated publishing. To publish a new version:
+
+1. Create a new GitHub release
+2. The GitHub Action will automatically build and publish the extension to the VS Code Marketplace
+
+Alternatively, you can manually trigger the publish workflow from the Actions tab on GitHub.
+
+## Licenseighlighter](images/extension-icon.png)
 
 This extension provides syntax highlighting for KiCad schematic, PCB, and related files in Visual Studio Code.
 

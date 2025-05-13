@@ -14,6 +14,7 @@
     "name": "Daniel Meza",
     "url": "https://www.linkedin.com/in/demezaa/"
   },
+  "publisher": "danielmeza",
   "license": "MIT",
   "icon": "images/extension-icon.png",
   "repository": {
@@ -63,6 +64,13 @@
     }]
   },
   "devDependencies": {
-    "vsce": "^2.15.0" 
+    "vsce": "^2.15.0",
+    "@vscode/vsce": "^2.24.0",
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0"
+  },
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
   }
 }

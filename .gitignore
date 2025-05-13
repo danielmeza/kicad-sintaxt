@@ -1,1 +1,7 @@
-node_modules
+node_modules/
+*.vsix
+.vscode-test/
+.vscode/
+.DS_Store
+npm-debug.log
+Thumbs.db

@@ -1,0 +1,79 @@
+name: Publish Extension
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      releaseType:
+        description: 'Release Type (patch, minor, major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Package extension
+        run: npm run package
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix-package
+          path: "*.vsix"
+          
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: vsix-package
+          
+      - name: Get extension version
+        id: get-version
+        run: echo "VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+        
+      - name: Publish to VS Code Marketplace
+        if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+        run: npx @vscode/vsce publish -p ${{ secrets.VSCE_PAT }}
+        
+      - name: Update version for manual dispatch
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          npm version ${{ github.event.inputs.releaseType }} --no-git-tag-version
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add package.json
+          git commit -m "Bump version to $(node -p "require('./package.json').version")"
+          git push
