@@ -61,5 +61,8 @@
       "scopeName": "source.kicad.sexpr",
       "path": "./syntaxes/kicad.tmLanguage.json"
     }]
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0" 
   }
 }
