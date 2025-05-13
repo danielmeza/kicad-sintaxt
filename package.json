@@ -19,11 +19,11 @@
   "icon": "images/extension-icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielmeza/kicad-sintaxt"
+    "url": "https://github.com/danielmeza/kicad-syntax-vscode"
   },
-  "homepage": "https://github.com/danielmeza/kicad-sintaxt#readme",
+  "homepage": "https://github.com/danielmeza/kicad-syntax-vscode#readme",
   "bugs": {
-    "url": "https://github.com/danielmeza/kicad-sintaxt/issues"
+    "url": "https://github.com/danielmeza/kicad-syntax-vscode/issues"
   },
   "keywords": [
     "kicad",
