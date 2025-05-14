@@ -72,7 +72,7 @@ This extension provides syntax highlighting for KiCad schematic, PCB, and relate
 
 ## Issues and Contributions
 
-If you find any issues or have suggestions for improvements, please submit an issue or pull request on the [GitHub repository](https://github.com/demezaa/kicad-syntax-highlighter).
+If you find any issues or have suggestions for improvements, please submit an issue or pull request on the [GitHub repository](https://github.com/danielmeza/kicad-syntax-vscode).
 
 ## License
 
